@@ -31,7 +31,7 @@ def main(args):
 
 
     #You can specify any huggingface/transformers pre-trained model here, for example, bert-base-uncased, roberta-base, xlm-roberta-base
-    model_name = sys.argv[1] if len(sys.argv) > 1 else 'distilbert-base-nli-stsb-mean-tokens'
+    model_name = 'cl-tohoku/bert-base-japanese-char-whole-word-masking'
 
     # Read the dataset
     train_batch_size = 16
@@ -56,6 +56,7 @@ def main(args):
     val_samples = []
     inp_list = []
     dataset_path = args.data_path
+    import ipdb; ipdb.set_trace()
     with gzip.open(dataset_path, 'rt', encoding='utf8') as fIn:
         reader = csv.DictReader(fIn, delimiter='\t', quoting=csv.QUOTE_NONE)
         for row in reader:
