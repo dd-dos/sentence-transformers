@@ -59,7 +59,7 @@ def main(args):
     with gzip.open(dataset_path, 'rt', encoding='utf8') as fIn:
         reader = csv.DictReader(fIn, delimiter='\t', quoting=csv.QUOTE_NONE)
         for row in reader:
-            score = float(row['score']) / 5.0  # Normalize score to range 0 ... 1
+            score = float(row['score']) / 10  # Normalize score to range 0 ... 1
             inp_list.append(InputExample(texts=[row['sentence1'], row['sentence2']], label=score))
 
 
