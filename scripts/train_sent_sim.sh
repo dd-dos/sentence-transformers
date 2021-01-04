@@ -1,2 +1,2 @@
-python examples/training/sentences_similarity/train.py --data_path /content/drive/MyDrive/training_data/jap_sentences_data.zip \
-                                                       --save_path /content/drive/MyDrive/training/Sentence-similarity
+python examples/training/sentences_similarity/train.py --data_path /home/pdd/Desktop/workspace/sentence-transformers/examples/training/sentences_similarity/jap_sentence_data.tsv.gz \
+                                                       --save_path ./output/Sentence-similarity

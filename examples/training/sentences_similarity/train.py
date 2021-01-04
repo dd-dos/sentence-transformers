@@ -20,6 +20,7 @@ import os
 import gzip
 import csv
 import argparse
+import numpy as np
 
 def main(args):
     #### Just some code to print debug information to stdout
@@ -56,7 +57,6 @@ def main(args):
     val_samples = []
     inp_list = []
     dataset_path = args.data_path
-    import ipdb; ipdb.set_trace()
     with gzip.open(dataset_path, 'rt', encoding='utf8') as fIn:
         reader = csv.DictReader(fIn, delimiter='\t', quoting=csv.QUOTE_NONE)
         for row in reader:
@@ -65,7 +65,9 @@ def main(args):
 
 
     from sklearn.model_selection import train_test_split
-    train_samples, val_samples = train_test_split(inp_list, 0.2)
+    train_samples, val_samples = train_test_split(inp_list, test_size=0.2)
+    import ipdb; ipdb.set_trace()
+
 
     train_dataset = SentencesDataset(train_samples, model)
     train_dataloader = DataLoader(train_dataset, shuffle=True, batch_size=train_batch_size)
@@ -81,7 +83,7 @@ def main(args):
     warmup_steps = math.ceil(len(train_dataset) * num_epochs / train_batch_size * 0.1) #10% of train data for warm-up
     logging.info("Warmup-steps: {}".format(warmup_steps))
 
-
+    import ipdb; ipdb.set_trace()
     # Train the model
     model.fit(train_objectives=[(train_dataloader, train_loss)],
             evaluator=evaluator,

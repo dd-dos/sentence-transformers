@@ -8,3 +8,4 @@ nltk
 sentencepiece
 fugashi
 sentence-transformers
+ipadic
