@@ -35,8 +35,8 @@ def main(args):
     model_name = 'cl-tohoku/bert-base-japanese-char-whole-word-masking'
 
     # Read the dataset
-    train_batch_size = 16
-    num_epochs = 4
+    train_batch_size = 64
+    num_epochs = 1000
     model_save_path = os.path.join(args.save_path, model_name.replace("/", "-")+'-'+datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
 
     # Use Huggingface/transformers model (like BERT, RoBERTa, XLNet, XLM-R) for mapping tokens to embeddings
