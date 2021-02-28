@@ -66,7 +66,7 @@ def main(args):
 
     from sklearn.model_selection import train_test_split
     train_samples, val_samples = train_test_split(inp_list, test_size=0.2)
-    import ipdb; ipdb.set_trace()
+    # import ipdb; ipdb.set_trace()
 
 
     train_dataset = SentencesDataset(train_samples, model)
@@ -83,7 +83,7 @@ def main(args):
     warmup_steps = math.ceil(len(train_dataset) * num_epochs / train_batch_size * 0.1) #10% of train data for warm-up
     logging.info("Warmup-steps: {}".format(warmup_steps))
 
-    import ipdb; ipdb.set_trace()
+    # import ipdb; ipdb.set_trace()
     # Train the model
     model.fit(train_objectives=[(train_dataloader, train_loss)],
             evaluator=evaluator,
