@@ -22,11 +22,9 @@ with open("jap2.txt", 'r') as file:
 embeddings1 = model.encode(sentences1, convert_to_tensor=True)
 embeddings2 = model.encode(sentences2, convert_to_tensor=True)
 
-
 #Compute cosine-similarits
 cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
 
 with open('result.txt','a+') as f:
     for i in tqdm.tqdm(range(len(sentences1))):
-        print(' Score: ', cosine_scores[i][i]*10)
         f.write(str(float(max(0,cosine_scores[i][i]*10)))+"\n")
