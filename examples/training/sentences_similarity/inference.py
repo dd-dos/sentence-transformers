@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from sentence_transformers import SentenceTransformer, util
-model = SentenceTransformer('2021-01-04_07-30-02')
+model = SentenceTransformer('cl-tohoku-2021-02-28')
 # model = SentenceTransformer('cl-tohoku/bert-base-japanese-char-whole-word-masking')
 
 import torch
@@ -26,7 +26,7 @@ embeddings2 = model.encode(sentences2, convert_to_tensor=True)
 #Compute cosine-similarits
 cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
 
-with open('result.txt','w+') as f:
+with open('result.txt','a+') as f:
     for i in tqdm.tqdm(range(len(sentences1))):
         print(' Score: ', cosine_scores[i][i]*10)
         f.write(str(float(max(0,cosine_scores[i][i]*10)))+"\n")
