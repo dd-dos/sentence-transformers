@@ -603,9 +603,10 @@ class SentenceTransformer(nn.Sequential):
                         loss_model.train()
 
             self._eval_during_training(evaluator, output_path, save_best_model, epoch, -1, callback)
-            print("==> save model at epoch {}".format(epoch))
-            os.makedirs(os.path.join(output_path, "last_models"))
-            self.save(os.path.join(output_path, "last_models"))
+            print("==> save model at epoch {} at custom path".format(epoch))
+            custom_path = os.path.join("/content/drive/MyDrive/training/Sentence-similarity", "last_models")
+            os.makedirs(custom_path, exist_ok=True)
+            self.save(custom_path)
             
 
     def evaluate(self, evaluator: SentenceEvaluator, output_path: str = None):
