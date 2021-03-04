@@ -603,6 +603,7 @@ class SentenceTransformer(nn.Sequential):
                         loss_model.train()
 
             self._eval_during_training(evaluator, output_path, save_best_model, epoch, -1, callback)
+            print("==> save model at epoch {}".format(epoch))
             os.makedirs(os.path.join(output_path, "last_models"))
             self.save(os.path.join(output_path, "last_models"))
             

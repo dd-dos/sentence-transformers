@@ -7,5 +7,5 @@ scipy
 nltk
 sentencepiece
 fugashi
-# sentence-transformers
+sentence-transformers
 ipadic
