@@ -19,3 +19,5 @@ nr_*/
 /docs/Makefile
 /examples/training/quora_duplicate_questions/quora-IR-dataset/
 *.gz
+*.zip
+*last_model
