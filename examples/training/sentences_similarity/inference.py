@@ -20,6 +20,9 @@ with open("jap2.txt", 'r') as file:
         line.replace("\n",'')
         sentences2.append(line)
 
+import torch
+device = torch.device('cuda:0' if torch.cuda.is_available() else "cpu")
+
 embeddings1 = model.encode(sentences1, convert_to_tensor=True)
 embeddings2 = model.encode(sentences2, convert_to_tensor=True)
 
